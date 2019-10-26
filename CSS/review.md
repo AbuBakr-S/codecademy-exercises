@@ -26,3 +26,23 @@ The nested `<li>` elements are selected with the following CSS:
 
 }
 ```
+
+## Important
+There is one thing that is even more specific than IDs: !important. !important can be applied to specific attributes instead of full rules. It will override any style no matter how specific it is. As a result, it should almost never be used. Once !important is used, it is very hard to override.
+
+The syntax of !important in CSS looks like this:
+```
+p {
+  color: blue !important;
+}
+```
+
+## Multiple Selectors
+In order to make CSS more concise, add CSS styles to multiple CSS selectors all at once to keep your code DRY.
+```
+h1,
+.menu {
+  font-family: Georgia;
+}
+```
+By separating the CSS selectors with a comma, both the h1 and the .menu elements will receive the font-family: Georgia styling.
