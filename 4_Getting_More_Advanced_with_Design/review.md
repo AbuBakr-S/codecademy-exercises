@@ -146,5 +146,13 @@ h1 {
 ```
 In the example above, the height of the box would remain at 200 pixels and the width would remain at 300 pixels. The border thickness and padding would remain entirely inside of the box.
 
+### The Box Model in Dev-Tools
+* `CMD + Shift + C` - Shortcut to Chrome Dev-Tools
+* Opens the Elements Panel
+* Click on `Computed` Tab
+* No values are shown with a `-`
+* CLick the `+` to add new CSS rules in the Styles tab
 
-
+**Height of Box = Content Height + Padding (Top & Bottom) + Border (Top & Bottom)**
+**Width of Box = COntent Width + Padding (Left & Right) + Border (Left & Right)**
+Margin has no effect on how big or small an HTML Element's box is. It only effects proximity. 
