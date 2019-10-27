@@ -153,7 +153,11 @@ In the example above, the height of the box would remain at 200 pixels and the w
 * No values are shown with a `-`
 * CLick the `+` to add new CSS rules in the Styles tab
 
-**Height of Box = Content Height + Padding (Top & Bottom) + Border (Top & Bottom)**
+#### Height of Box = Content Height + Padding (Top & Bottom) + Border (Top & Bottom)
 
-**Width of Box = COntent Width + Padding (Left & Right) + Border (Left & Right)**
+#### Width of Box = Content Width + Padding (Left & Right) + Border (Left & Right)
+
 Margin has no effect on how big or small an HTML Element's box is. It only effects proximity. 
+
+* It's advised to use a reset stylesheet and set `box-sizing: border-box`.
+[Reset stylesheet:] https://meyerweb.com/eric/tools/css/reset/
