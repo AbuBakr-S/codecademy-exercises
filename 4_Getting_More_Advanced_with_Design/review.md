@@ -160,4 +160,4 @@ In the example above, the height of the box would remain at 200 pixels and the w
 Margin has no effect on how big or small an HTML Element's box is. It only effects proximity. 
 
 * It's advised to use a reset stylesheet and set `box-sizing: border-box`.
-* [Reset stylesheet:] https://meyerweb.com/eric/tools/css/reset/
+* [Reset stylesheet:] (https://meyerweb.com/eric/tools/css/reset/)
