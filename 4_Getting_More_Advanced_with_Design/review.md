@@ -21,7 +21,7 @@ div {
 In the example above, `margin: 0 auto;` will center the divs in their containing elements. 
 The `0` sets the top and bottom margins to 0 pixels. The auto value instructs the browser to adjust the left and right margins until the element is centered within its containing element.
 
-In order to center an element, a *** width must be set for that element. *** Otherwise, the width of the div will be automatically set to the full width of its containing element, like the `<body>`, for example. It’s not possible to center an element that takes up the full width of the page.
+In order to center an element, a **width must be set for that element.** Otherwise, the width of the div will be automatically set to the full width of its containing element, like the `<body>`, for example. It’s not possible to center an element that takes up the full width of the page.
 ```
 div.headline {
   width: 400px;
@@ -78,7 +78,7 @@ p {
   overflow: scroll; 
 }
 ```
-The overflow property is *** set on a parent element *** to instruct a web browser how to render child elements. For example, if a div’s overflow property is set to scroll, all children of this div will display overflowing content with a scroll bar.
+The overflow property is **set on a parent element** to instruct a web browser how to render child elements. For example, if a div’s overflow property is set to scroll, all children of this div will display overflowing content with a scroll bar.
 
 ## Resetting Defaults
 All major web browsers have a default stylesheet they use in the absence of an external stylesheet. These default stylesheets are known as user agent stylesheets.User agent stylesheets often have default CSS rules that set default values for padding and margin. 
@@ -113,4 +113,4 @@ The visibility property can be set to one of the following values:
 }
 ```
 
-*** Note: *** An element with display: none will be completely removed from the web page. An element with visibility: hidden, however, will not be visible on the web page, but the space reserved for it will.
+**Note:** An element with display: none will be completely removed from the web page. An element with visibility: hidden, however, will not be visible on the web page, but the space reserved for it will.
