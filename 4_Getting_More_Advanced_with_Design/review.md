@@ -66,7 +66,7 @@ All of the components of the box model comprise an element’s size. For example
 * 20 pixels margin on the left and right
 * 10 pixels margin on the top and bottom
 
-* Sometimes, these components result in an element that is larger than the parent’s containing area. * How can we ensure that we can view all of an element that is larger than its parent’s containing area?
+_Sometimes, these components result in an element that is larger than the parent’s containing area._ How can we ensure that we can view all of an element that is larger than its parent’s containing area?
 
 The overflow property controls what happens to content that spills, or overflows, outside its box. It can be set to one of the following values:
 
