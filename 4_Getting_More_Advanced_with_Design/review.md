@@ -114,3 +114,37 @@ The visibility property can be set to one of the following values:
 ```
 
 **Note:** An element with display: none will be completely removed from the web page. An element with visibility: hidden, however, will not be visible on the web page, but the space reserved for it will.
+
+
+## Changing the Box Model
+The `box-sizing property` controls the type of box model the browser should use when interpreting a web page.
+The default value of this property is `content-box`. This is the same box model that is affected by border thickness and padding.
+
+### Box Model: Border-Box
+We can reset the entire box model and specify a new one: border-box.
+```
+* {
+  box-sizing: border-box;
+}
+```
+The code in the example above resets the box model to border-box for all HTML elements.
+
+
+In this box model, the height and width of the box will remain fixed. The border thickness and padding will be included inside of the box, which means the overall dimensions of the box do not change.
+```
+<h1>Hello World</h1>
+* {
+  box-sizing: border-box;   // 
+}
+
+h1 {
+  border: 1px solid black;
+  height: 200px;
+  width: 300px;
+  padding: 10px;
+}
+```
+In the example above, the height of the box would remain at 200 pixels and the width would remain at 300 pixels. The border thickness and padding would remain entirely inside of the box.
+
+
+
