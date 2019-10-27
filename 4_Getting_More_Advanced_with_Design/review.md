@@ -66,7 +66,7 @@ All of the components of the box model comprise an element’s size. For example
 * 20 pixels margin on the left and right
 * 10 pixels margin on the top and bottom
 
-*** Sometimes, these components result in an element that is larger than the parent’s containing area. *** How can we ensure that we can view all of an element that is larger than its parent’s containing area?
+* Sometimes, these components result in an element that is larger than the parent’s containing area. * How can we ensure that we can view all of an element that is larger than its parent’s containing area?
 
 The overflow property controls what happens to content that spills, or overflows, outside its box. It can be set to one of the following values:
 
@@ -81,7 +81,7 @@ p {
 The overflow property is *** set on a parent element *** to instruct a web browser how to render child elements. For example, if a div’s overflow property is set to scroll, all children of this div will display overflowing content with a scroll bar.
 
 ## Resetting Defaults
-All major web browsers have a default stylesheet they use in the absence of an external stylesheet. These default stylesheets are known as user agent stylesheets. User agent stylesheets often have default CSS rules that set default values for padding and margin. 
+All major web browsers have a default stylesheet they use in the absence of an external stylesheet. These default stylesheets are known as user agent stylesheets.User agent stylesheets often have default CSS rules that set default values for padding and margin. 
 
 Many developers choose to reset these default values so that they can truly work with a clean slate.
 ```
