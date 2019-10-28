@@ -295,3 +295,44 @@ There are four ways to represent color in CSS:
   * HSL stands for hue (the color itself), saturation (the intensity of the color), and lightness (how light or dark a color is).
   * Hue ranges from 0 to 360 and saturation and lightness are both represented as percentages like this: hsl(200, 20%, 50%).
 * You can add opacity to color in RGB and HSL by adding a fourth value, a, which is represented as a percentage.
+
+
+# Typography
+
+## Font Family
+1. The font specified in a stylesheet must be installed on a user’s computer in order for that font to display when a user visit the web page. We’ll learn how to work around this issue in a later exercise.
+2. You’ve probably noticed that we haven’t been specifying a typeface in previous exercises of this course. How exactly does the browser know what typeface to use when displaying the web page? The default typeface for all most browsers is Times New Roman. You may be familiar with this typeface if you have ever used a formatted word processor.
+3. It’s a good practice to limit the number of typefaces used on a web page to 2 or 3.
+4. When the name of a typeface consists of more than one word, it must be enclosed in double quotes (otherwise it will not be recognized), like so:
+```
+h1 {
+  font-family: "Courier New";
+}
+```
+
+## Font Weight
+When using numeric weights, there are a number of default font weights that we can use:
+
+1. 400 is the default font-weight of most text.
+2. 700 signifies a bold font-weight.
+3. 300 signifies a light font-weight.
+
+## Fallback Fonts
+What happens when a stylesheet requires a font that is not installed on a user’s computer? Most computers have a small set of typefaces pre-installed. This small set includes serif fonts like Times New Roman and sans-serif fonts like Arial.
+
+These pre-installed fonts serve as fallback fonts if the stylesheet specifies a font which is not installed on a user’s computer.
+
+To use fallback fonts, the following syntax is required:
+```
+h1 {
+  font-family: "Garamond", "Times", serif;
+}
+```
+The CSS rule above says:
+Use the Garamond font for all `<h1>` elements on the web page.
+If Garamond is not available, use the Times font.
+If Garamond and Times are not available, use any serif font pre-installed on the user’s computer.
+
+## Linking Fonts II
+When we have the link to the font of our choice, we can add the font to the `<head>` section of the HTML document, using the `<link>` tag and the href.
+
