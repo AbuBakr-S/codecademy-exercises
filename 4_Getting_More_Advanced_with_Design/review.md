@@ -274,10 +274,24 @@ div.special {
 ```
 In the example above, all `<div>`s on the page are floated to the left side. The element with class special did not move all the way to the left because a taller `<div>` blocked its positioning. By setting its clear property to left, the special `<div>` will be moved all the way to the left side of the page.
 
-
-
 * All HTML elements are rectangular boxes to the browser
 * The browser determines the size of the box unless we override it
 * We should reset the box-model as it makes life easier for us as developers
 * It's advised to use a reset stylesheet and set `box-sizing: border-box`
 * Reset stylesheet: https://meyerweb.com/eric/tools/css/reset/
+
+# Color
+
+There are four ways to represent color in CSS:
+
+* Named colors — there are 147 named colors, which you can review here.
+* Hexadecimal or hex colors
+  * Hexadecimal is a number system with has sixteen digits, 0 to 9 followed by “A” to “F”.
+  * Hex values always begin with # and specify values of red, blue and green using hexademical numbers such as #23F41A.
+* RGB
+  * RGB colors use the rgb() syntax with one value for red, one value for blue and one value for green.
+  * RGB values range from 0 to 255 and look like this: rgb(7, 210, 50).
+* HSL
+  * HSL stands for hue (the color itself), saturation (the intensity of the color), and lightness (how light or dark a color is).
+  * Hue ranges from 0 to 360 and saturation and lightness are both represented as percentages like this: hsl(200, 20%, 50%).
+* You can add opacity to color in RGB and HSL by adding a fourth value, a, which is represented as a percentage.
