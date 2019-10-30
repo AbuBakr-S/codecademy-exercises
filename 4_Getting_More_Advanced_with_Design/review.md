@@ -337,7 +337,7 @@ If Garamond and Times are not available, use any serif font pre-installed on the
 When we have the link to the font of our choice, we can add the font to the `<head>` section of the HTML document, using the `<link>` tag and the href.
 
 
-# Responsive Design
+# Responsive Design | Sizing Elements
 ## Em
 Incorporating relative sizing starts by using units other than pixels. The em represents the size of the **base font** being used. 
 
@@ -417,3 +417,80 @@ The child element requires a change, and its height is modified. This causes the
 In the scenario above, an unset height (the parent’s) results in a constantly changing height due to changes to the child element. This is why vertical padding and margin are based on the width of the parent, and not the height.
 
 **Note:** When using relative sizing, ems and rems should be used to size text and dimensions on the page related to text size (i.e. padding around text). This creates a consistent layout based on text size. Otherwise, percentages should be used.
+
+## Width: Minimum & Maximum
+`min-width` — ensures a minimum width for an element.
+`max-width` — ensures a maximum width for an element.
+```
+p {
+  min-width: 300px;
+  max-width: 600px;
+}
+```
+In the example above, when the browser is resized, the width of paragraph elements will not fall below 300 pixels, nor will their width exceed 600 pixels.
+
+**Note:** The unit of pixels is used to ensure hard limits on the dimensions of the element(s).
+
+## Height: Minimum & Maximum
+`min-height` — ensures a minimum height for an element’s box.
+`max-height` — ensures a maximum height for an element’s box.
+```
+p {
+  min-height: 150px;
+  max-height: 300px;
+}
+```
+In the example above, the height of all paragraphs will not shrink below 150 pixels and the height will not exceed 300 pixels.
+
+What will happen to the contents of an element if the max-height property is set too low for that element? It’s possible that content will overflow outside of the element, resulting in content that is not legible.
+
+## Scaling Images and Videos
+Many websites contain a variety of different media, like images and videos. When a website contains such media, it’s important to make sure that it is scaled proportionally so that users can correctly view it.
+```
+.container {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+```
+In the example above, .container represents a container div. It is set to a width of 50% (half of the browser’s width, in this example) and a height of 200 pixels. Setting overflow to hidden ensures that any content with dimensions larger than the container will be hidden from view.
+
+The second CSS rule ensures that images scale with the width of the container. The height property is set to auto, meaning an image’s height will automatically scale proportionally with the width. Finally, the last line will display images as block level elements (rather than inline-block, their default state). This will prevent images from attempting to align with other content on the page (like text), which can add unintended margin to the images.
+
+It’s worth memorizing the entire example above. It represents a very common design pattern used to scale images and videos proportionally.
+
+**Note:** The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, you can set max-height to 100% and width to auto (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
+
+## Scaling Background Images
+Background images of HTML elements can also be scaled responsively using CSS properties.
+```
+body {
+  background-image: url('#');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+```
+In the example above, the first CSS declaration sets the background image (# is a placeholder for an image URL in this example). The second declaration instructs the CSS compiler to not repeat the image (by default, images will repeat). The third declaration centers the image within the element.
+
+The final declaration, however, is the focus of the example above. It’s what scales the background image. The image will cover the entire background of the element, all while keeping the image in proportion. If the dimensions of the image exceed the dimensions of the container then only a portion of the image will display.
+
+### Review - Relative Measurements
+* Content on a website can be sized relative to other elements on the page using relative measurements.
+* The unit of em sizes font relative to the font size of a parent element.
+* The unit of rem sizes font relative to the font size of a root element. That root element is the <html> element.
+* Percentages are commonly used to size box-model features, like the width, height, padding, or margin of an element.
+* When percentages are used to size width and height, child elements will be sized relative to the dimensions of their parent (remember that parent dimensions must first be set).
+* Percentages can be used to set padding and margin. Horizontal and vertical padding and margin are set relative to the width of a parent element.
+* The minimum and maximum width of elements can be set using min-width and max-width.
+* The minimum and maximum height of elements can be set using min-height and max-height.
+* When the height of an image or video is set, then its width can be set to auto so that the media scales proportionally. Reversing these two properties and values will also achieve the same result.
+* A background image of an HTML element will scale proportionally when its background-size property is set to cover.
+* Relative units of measurement are a first step towards incorporating responsive design in a website. When combined with more advanced responsive techniques, you can create a seamless user experience regardless of a device’s screen size.
+
