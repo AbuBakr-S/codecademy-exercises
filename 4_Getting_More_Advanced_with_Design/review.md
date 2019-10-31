@@ -538,3 +538,15 @@ The example above can be written using two separate rules as well:
 The second media query will then apply CSS rules when the size of the screen meets or exceeds 480 pixels, meaning that it can override CSS rules present in the first media query or apply additional CSS rules that are not already present in the first.
 
 Both examples above are valid, and it is likely that you will see both patterns used when reading another developer’s code.
+
+## Dots Per Inch (DPI)
+Another media feature we can target is **screen resolution.** Many times we will want to **supply higher quality media (images, video, etc.) only to users with screens that can support high resolution media.** Targeting screen resolution also **helps users avoid downloading high resolution (large file size) images that their screen may not be able to properly display.**
+
+To target by resolution, we can use the min-resolution and max-resolution media features. These media features accept a resolution value in either dots per inch (dpi) or dots per centimeter (dpc). Learn more about resolution measurements here.
+```
+@media only screen and (min-resolution: 300dpi) {
+    /* CSS for high resolution screens */
+}
+```
+The media query in the example above targets high resolution screens by making sure the screen resolution is at least 300 dots per inch. If the screen resolution query is met, then we can use CSS to display high resolution images and other media.
+
