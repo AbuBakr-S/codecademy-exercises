@@ -514,3 +514,27 @@ Let’s break this example down into its parts:
 3. `and (max-width : 480px)` — This part of the rule is called a media feature, and instructs the CSS compiler to apply the CSS styles to devices with a width of 480 pixels or smaller. Media features are the conditions that must be met in order to render the CSS within a media query.
 4. CSS rules are nested inside of the media query’s curly braces. The rules will be applied when the media query is met. In the example above, the text in the body element is set to a font-size of 12px when the user’s screen is less than 480px.
 
+## Range
+Specific screen sizes can be targeted by setting multiple width and height media features. By using multiple widths and heights, a range can be set for a media query.
+```
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* ruleset for 320px - 480px */
+}
+```
+The example above would apply its CSS rules only when the screen size is between 320 pixels and 480 pixels. Notice the use of a second and keyword after the min-width media feature. This allows us to chain two requirements together.
+
+The example above can be written using two separate rules as well:
+```
+@media only screen and (min-width: 320px) { 
+    /* ruleset for >= 320px */
+}
+
+
+@media only screen and (min-width: 480px) { 
+    /* ruleset for >= 480px */
+}
+```
+
+The second media query will then apply CSS rules when the size of the screen meets or exceeds 480 pixels, meaning that it can override CSS rules present in the first media query or apply additional CSS rules that are not already present in the first.
+
+Both examples above are valid, and it is likely that you will see both patterns used when reading another developer’s code.
