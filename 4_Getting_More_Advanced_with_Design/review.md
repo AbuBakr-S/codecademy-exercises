@@ -696,4 +696,4 @@ There are five values for the justify-content property:
 In the definitions above, “no extra space” means that margins and borders will be respected, but no more space (than is specified in the style rule for the particular element) will be added between elements. The size of each individual flex item is not changed by this property.
 
 ### Justify Content Visualisation: 
-![alt text](../resources/images/justify-content.png "5 values of justify-content")
+![alt text](../resources/images/flex-justify-content.png "5 values of justify-content")
