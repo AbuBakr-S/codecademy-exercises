@@ -695,5 +695,27 @@ There are five values for the justify-content property:
 
 In the definitions above, “no extra space” means that margins and borders will be respected, but no more space (than is specified in the style rule for the particular element) will be added between elements. The size of each individual flex item is not changed by this property.
 
-### Justify Content Visualisation: 
-![alt text](../resources/images/flex-justify-content.png "5 values of justify-content")
+### Flexbox - Justify Content Visualisation: 
+![alt text](../resources/images/flexbox-justify-content.png "5 values of justify-content")
+
+## align-items
+In the previous exercise, you learned how to justify the content of a flex container from left to right across the page. It is also possible to align flex items vertically within the container. The align-items property makes it possible to space flex items vertically.
+```
+.container {
+  align-items: baseline;
+}
+```
+In the example above, the align-items property is set to baseline. This means that the baseline of the content of each item will be aligned.
+
+There are five values we can use for the align-items property:
+
+1. `flex-start` — all elements will be positioned at the top of the parent container.
+2. `flex-end` — all elements will be positioned at the bottom of the parent container.
+3. `center` — the center of all elements will be positioned halfway between the top and bottom of the parent container.
+4. `baseline` — the bottom of the content of all items will be aligned with each other.
+5. `stretch` — if possible, the items will stretch from top to bottom of the container (this is the default value; elements with a specified height will not stretch; elements with a minimum height or no height specified will stretch).
+
+These five values tell the elements how to behave along the cross axis of the parent container. In these examples, the cross axis stretches from top to bottom of the container. We’ll learn more about this in a future exercise.
+
+### Flexbox - Align Items Visualisation: 
+![alt text](../resources/images/flexbox-align-items.png "5 values of align-items")
