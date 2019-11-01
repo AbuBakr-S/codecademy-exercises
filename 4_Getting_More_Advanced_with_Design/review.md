@@ -753,3 +753,6 @@ If the parent container is larger than necessary then the flex items will not st
 In the example above, the .container div has a display value of flex, so its three child divs will be positioned next to each other. If there is additional space in the .container div (in this case, if it is wider than 300 pixels), the flex items will grow to fill it. The .center div will stretch twice as much as the .side divs. For example, if there were 60 additional pixels of space, the center div would absorb 30 pixels and the side divs would absorb 15 pixels each.
 
 **If a max-width is set for an element, it will not grow larger than that even if there is more space for it to absorb.**
+
+### Flexbox - Flex-Grow Visualisation: 
+![alt text](../resources/images/flexbox-flex-grow.png "Different Arrangements")
