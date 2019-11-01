@@ -594,3 +594,40 @@ Rather than set breakpoints based on specific devices, the best practice is to r
 By observing the dimensions at which a website naturally breaks, you can set media query breakpoints that create the best possible user experience on a **project by project basis**, rather than forcing every project to fit a certain screen size. Different projects have different needs, and creating a responsive design should be no different.
 
 Check out [this](../resources/images/screen-sizes.png) list of breakpoints by device widths. Use it as a reference of screen widths to test your website to make certain it looks great across a variety of devices.
+
+# Flexbox
+Flexbox or Flexible Box Layout, is an elegant tool that makes it easy to address positioning issues that may have been difficult before. 
+
+is a new tool developed for CSS3 that greatly simplifies how to position elements. While flexbox is not meant to lay out entire pages, it is useful for positioning elements, whether individually or in groups.
+
+1. Flex containers 
+2. Flex items
+
+* All direct child elements of a flex container are flex items. 
+* Set the element’s display property to flex or inline-flex. 
+
+## Properties:
+* justify-content
+* align-items
+* flex-grow
+* flex-shrink
+* flex-basis
+* flex
+* flex-wrap
+* align-content
+* flex-direction
+* flex-flow
+
+## display: flex
+Any element can be a flex container. Flex containers are helpful tools for creating websites that respond to changes in screen sizes. **Child elements of flex containers will change size and location in response to the size and position of their parent container.**
+
+For an element to become a flex container, its display property must be set to flex.
+```
+div.container {
+  display: flex;
+}
+```
+In the example above, all divs with the class container are flex containers. **If they have children, the children are flex items.** A div with the declaration display: flex; will remain block level — no other elements will appear on the same line as it.
+
+However, it will change the behavior of its child elements. **Child elements will not begin on new lines.** 
+
