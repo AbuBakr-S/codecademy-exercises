@@ -756,3 +756,40 @@ In the example above, the .container div has a display value of flex, so its thr
 
 ### Flexbox - Flex-Grow Visualisation: 
 ![alt text](../resources/images/flexbox-flex-grow.png "Different Arrangements")
+
+## flex-shrink
+Just as the flex-grow property proportionally stretches flex items, the flex-shrink property can be used to specify which elements will shrink and in what proportions.
+
+You may have noticed in earlier exercises that flex items shrank when the flex container was too small, even though we had not declared the property. This is because the default value of flex-shrink is 1. However, flex items do not grow unless the flex-grow property is declared because the default value of flex-grow is 0.
+```
+<div class="container">
+  <div class="side">
+    <h1>I'm on the side of the flex container!</h1>
+  </div>
+  <div class="center">
+    <h1>I'm in the center of the flex container!</h1>
+  </div>
+  <div class="side">
+    <h1>I'm on the other side of the flex container!</h1>
+  </div>
+</div>
+.container {
+  display: flex;
+}
+
+.side {
+  width: 100px;
+  flex-shrink: 1;
+}
+
+.center {
+  width: 100px;
+  flex-shrink: 2;
+}
+```
+In the example above, the .center div will shrink twice as much as the .side divs if the .container div is too small to fit the elements within it. If the content is 60 pixels too large for the flex container that surrounds it, the .center div will shrink by 30 pixels and the outer divs will shrink by 15 pixels each. Margins are unaffected by flex-grow and flex-shrink.
+
+Keep in mind, minimum and maximum widths will take precedence over flex-grow and flex-shrink. As with flex-grow, flex-shrink will only be employed if the parent container is too small or the browser is adjusted.
+
+### Flexbox - Flex-Shrink Visualisation: 
+![alt text](../resources/images/flexbox-flex-shrink.png "Different Arrangements")
