@@ -875,3 +875,6 @@ The browser (shown below) has two flex containers, each with three flex items. I
 Stretch the browser window to increase its width. Observe that once the top outer divs reach 100 pixels wide, they begin to grow faster than the top center div. Also notice that once the bottom center div reaches 100 pixels wide, it begins to grow faster than the outer divs.
 
 Now, shrink the browser window and notice that once the top center div reaches 50 pixels wide it begins to shrink faster than the outer divs and when the bottom outer divs reach 75 pixels, they begin to shrink faster than the center div.
+
+### Flexbox - Flex Visualisation: 
+![alt text](../resources/images/flexbox-flex.png "Different Arrangements")
