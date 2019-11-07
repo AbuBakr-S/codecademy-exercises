@@ -793,3 +793,38 @@ Keep in mind, minimum and maximum widths will take precedence over flex-grow and
 
 ### Flexbox - Flex-Shrink Visualisation: 
 ![alt text](../resources/images/flexbox-flex-shrink.png "Different Arrangements")
+
+## flex-basis
+In the previous two exercises, the dimensions of the divs were determined by heights and widths set with CSS. Another way of specifying the width of a flex item is with the flex-basis property. flex-basis allows us to specify the width of an item before it stretches or shrinks.
+```
+<div class="container">
+  <div class=”side”>
+    <h1>Left side!</h1>
+  </div>
+  <div class="center">
+    <h1>Center!</h1>
+  </div>
+  <div class="side">
+    <h1>Right side!</h1>
+  </div>
+</div>
+.container {
+  display: flex;
+}
+
+.side {
+  flex-grow: 1;
+  flex-basis: 100px;
+}
+
+.center {
+  flex-grow: 2;
+  flex-basis: 150px;
+}
+```
+In the example above, the .side divs will be 100 pixels wide and the .center div will be 150 pixels wide if the .container div has just the right amount of space (350 pixels, plus a little extra for margins and borders). If the .container div is larger, the .center div will absorb twice as much space as the .side divs.
+
+The same would hold true if we assigned flex-shrink values to the divs above as well.
+
+### Flexbox - Flex-Basis Visualisation: 
+![alt text](../resources/images/flexbox-flex-basis.png "Different Arrangements")
