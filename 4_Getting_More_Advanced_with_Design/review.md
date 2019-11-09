@@ -1,3 +1,173 @@
+# Display and Positioning
+
+## Flow of HTML
+A browser will render the elements of an HTML document that has no CSS from left to right, top to bottom, in the same order as they exist in the document. This is called the flow of elements in HTML.
+
+**Block-level elements** - create a block the full width of their parent elements and prevent other elements from appearing in the same horizontal space.
+**In-line-level elements** -
+
+### 5 properties for adjusting the position of HTML elements in the browser:
+* position
+  * static
+  * relative
+  * absolute 
+  * fixed
+* display
+* z-index
+* float
+* clear
+
+## Position: Relative
+This value allows you to position an element relative to its default static position on the web page.
+```
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+```
+In the example above, the `<div>` has been positioned using two of the four offset properties. The valid offset properties are:
+* top - moves the element down.
+* bottom - moves the element up.
+* left - moves the element right.
+* right - moves the element left.
+
+In the example above, the `<div>` will be moved down 20 pixels and to the right 50 pixels from its default static position. 
+
+Units for offset properties can be specified in pixels, ems, or percentages. **Note** that offset properties will not work if the value of the element’s position property is the default static.
+
+
+
+1. The position property allows you to specify the position of an element in three different ways.
+2. When set to relative, an element’s position is relative to its default position on the page.
+3. When set to absolute, an element’s position is relative to its closest positioned parent element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
+4. When set to fixed, an element’s position can be pinned to any part of the web page. The element will remain in view no matter what.
+5. The z-index of an element specifies how far back or how far forward an element appears on the page when it overlaps other elements.
+6. The display property allows you control how an element flows vertically and horizontally a document.
+inline elements take up as little space as possible, and they cannot have manually-adjusted width or height.
+block elements take up the width of their container and can have manually-adjusted heights.
+inline-block elements can have set width and height, but they can also appear next to each other and do not take up their entire container width.
+7. The float property can move elements as far left or as far right as possible on a web page.
+8. You can clear an element’s left or right side (or both) using the clear property.
+
+
+
+
+
+### Position: Absolute
+When an element’s position is set to absolute all other elements on the page will ignore the element and act like it is not present on the page. The element will be positioned relative to its closest positioned parent element.
+```
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+```
+In the example above, the .box-bottom `<div>` will be moved down and right from the top left corner of the view. **If offset properties weren’t specified, the top box would be entirely covered by the bottom box**
+
+### Position: Fixed
+When an element’s position is set to absolute, as in the last exercise, the element will scroll with the rest of the document when a user scrolls.
+
+### Z-Index
+When boxes on a web page have a combination of different positions, the boxes (and therefore, their content) can overlap with each other, making the content difficult to read or consume.
+
+The z-index property controls the depth of elements, with deeper elements appearing behind shallower elements.
+```
+.box-top {
+  background-color: Aquamarine;
+  position: relative;
+  z-index: 2;
+}
+
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  z-index: 1;
+}
+```
+The z-index property does not work on static elements.
+
+### Inline Display
+Every HTML element has a default display value that dictates if it can share horizontal space with other elements. Some elements fill the entire browser from left to right regardless of the size of their content. Other elements only take up as much horizontal space as their content requires and can be directly next to other elements.
+
+Three values for the display property: 
+* inline
+* block
+* inline-block.
+
+#### inline
+Inline elements have a box that wraps tightly around their content, only taking up the amount of space necessary to display their content and not requiring a new line after each element. 
+
+Inline elements cannot be altered in size with the height or width CSS properties.
+
+The CSS display property provides the ability to make any element an inline element. This includes elements that are not inline by default such as paragraphs, divs, and headings.
+```
+h1 {
+  display: inline;
+}
+```
+The CSS in the example above will change the display of all `<h1>` elements to inline. The browser will render `<h1>` elements on the same line as other inline elements immediately before or after them (if there are any).
+
+### block
+These elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content.
+
+### inline-block
+Inline-block elements can appear next to each other and we can specify their dimensions using the width and height properties. Images are the best example of default inline-block elements.
+
+## Float
+The float property can be set to one of two values:
+
+`left` - this value will move, or float, elements as far left as possible.
+
+`right` - this value will move elements as far right as possible.
+```
+.boxes {
+  width: 120px;
+  height: 70px;
+}
+
+.box-bottom {
+  background-color: DeepSkyBlue;
+  float: right;
+}
+```
+In the example above, we float the .box-bottom element to the right. This works for static and relative positioned elements. See the result of the code below:
+
+Floated elements must have a width specified, as in the example above. Otherwise, the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
+
+## Clear
+The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can “bump” into each other and not allow other elements to properly move to the left or right.
+
+The clear property specifies how elements should behave when they bump into each other on the page. It can take on one of the following values:
+
+`left` — the left side of the element will not touch any other element within the same containing element.
+
+`right` — the right side of the element will not touch any other element within the same containing element.
+
+`both` — neither side of the element will touch any other element within the same containing element.
+none — the element can touch either side.
+```
+div {
+  width: 200px;
+  float: left;
+}
+
+div.special {
+  clear: left;
+}
+```
+In the example above, all `<div>`s on the page are floated to the left side. The element with class special did not move all the way to the left because a taller `<div>` blocked its positioning. By setting its clear property to left, the special `<div>` will be moved all the way to the left side of the page.
+
+* All HTML elements are rectangular boxes to the browser
+* The browser determines the size of the box unless we override it
+* We should reset the box-model as it makes life easier for us as developers
+* It's advised to use a reset stylesheet and set `box-sizing: border-box`
+* Reset stylesheet: https://meyerweb.com/eric/tools/css/reset/
+
 # The Box Model
 
 ## Introduction to the Box Model
@@ -159,126 +329,6 @@ In the example above, the height of the box would remain at 200 pixels and the w
 
 Margin has no effect on how big or small an HTML Element's box is. It only effects proximity. 
 
-
-
-
-
-
-
-
-
-### Position: Absolute
-When an element’s position is set to absolute all other elements on the page will ignore the element and act like it is not present on the page. The element will be positioned relative to its closest positioned parent element.
-```
-.box-bottom {
-  background-color: DeepSkyBlue;
-  position: absolute;
-  top: 20px;
-  left: 50px;
-}
-```
-In the example above, the .box-bottom `<div>` will be moved down and right from the top left corner of the view. **If offset properties weren’t specified, the top box would be entirely covered by the bottom box**
-
-### Position: Fixed
-When an element’s position is set to absolute, as in the last exercise, the element will scroll with the rest of the document when a user scrolls.
-
-### Z-Index
-When boxes on a web page have a combination of different positions, the boxes (and therefore, their content) can overlap with each other, making the content difficult to read or consume.
-
-The z-index property controls the depth of elements, with deeper elements appearing behind shallower elements.
-```
-.box-top {
-  background-color: Aquamarine;
-  position: relative;
-  z-index: 2;
-}
-
-.box-bottom {
-  background-color: DeepSkyBlue;
-  position: absolute;
-  top: 20px;
-  left: 50px;
-  z-index: 1;
-}
-```
-The z-index property does not work on static elements.
-
-### Inline Display
-Every HTML element has a default display value that dictates if it can share horizontal space with other elements. Some elements fill the entire browser from left to right regardless of the size of their content. Other elements only take up as much horizontal space as their content requires and can be directly next to other elements.
-
-Three values for the display property: 
-* inline
-* block
-* inline-block.
-
-#### inline
-Inline elements have a box that wraps tightly around their content, only taking up the amount of space necessary to display their content and not requiring a new line after each element. 
-
-Inline elements cannot be altered in size with the height or width CSS properties.
-
-The CSS display property provides the ability to make any element an inline element. This includes elements that are not inline by default such as paragraphs, divs, and headings.
-```
-h1 {
-  display: inline;
-}
-```
-The CSS in the example above will change the display of all `<h1>` elements to inline. The browser will render `<h1>` elements on the same line as other inline elements immediately before or after them (if there are any).
-
-### block
-These elements fill the entire width of the page by default, but their width property can also be set. Unless otherwise specified, they are the height necessary to accommodate their content.
-
-### inline-block
-Inline-block elements can appear next to each other and we can specify their dimensions using the width and height properties. Images are the best example of default inline-block elements.
-
-## Float
-The float property can be set to one of two values:
-
-`left` - this value will move, or float, elements as far left as possible.
-
-`right` - this value will move elements as far right as possible.
-```
-.boxes {
-  width: 120px;
-  height: 70px;
-}
-
-.box-bottom {
-  background-color: DeepSkyBlue;
-  float: right;
-}
-```
-In the example above, we float the .box-bottom element to the right. This works for static and relative positioned elements. See the result of the code below:
-
-Floated elements must have a width specified, as in the example above. Otherwise, the element will assume the full width of its containing element, and changing the float value will not yield any visible results.
-
-## Clear
-The float property can also be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on the page. Specifically, elements can “bump” into each other and not allow other elements to properly move to the left or right.
-
-The clear property specifies how elements should behave when they bump into each other on the page. It can take on one of the following values:
-
-`left` — the left side of the element will not touch any other element within the same containing element.
-
-`right` — the right side of the element will not touch any other element within the same containing element.
-
-`both` — neither side of the element will touch any other element within the same containing element.
-none — the element can touch either side.
-```
-div {
-  width: 200px;
-  float: left;
-}
-
-div.special {
-  clear: left;
-}
-```
-In the example above, all `<div>`s on the page are floated to the left side. The element with class special did not move all the way to the left because a taller `<div>` blocked its positioning. By setting its clear property to left, the special `<div>` will be moved all the way to the left side of the page.
-
-* All HTML elements are rectangular boxes to the browser
-* The browser determines the size of the box unless we override it
-* We should reset the box-model as it makes life easier for us as developers
-* It's advised to use a reset stylesheet and set `box-sizing: border-box`
-* Reset stylesheet: https://meyerweb.com/eric/tools/css/reset/
 
 # Color
 
