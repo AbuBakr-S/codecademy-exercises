@@ -1025,3 +1025,4 @@ The flex-direction property can accept four values:
 
 ### Flex-Direction - Flex Visualisation: 
 ![alt text](../resources/images/flex-direction.png "Different Arrangements")
+
