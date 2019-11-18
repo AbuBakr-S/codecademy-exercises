@@ -965,3 +965,4 @@ Note: The flex-wrap property is declared on flex containers.
 
 ### Flex-Wrap - Flex Visualisation: 
 ![alt text](../resources/images/flex-wrap.png "Different Arrangements")
+
