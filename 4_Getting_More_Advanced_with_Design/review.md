@@ -1026,3 +1026,69 @@ The flex-direction property can accept four values:
 ### Flex-Direction - Flex Visualisation: 
 ![alt text](../resources/images/flex-direction.png "Different Arrangements")
 
+## flex-flow
+Like the flex property, the flex-flow property is used to declare both the flex-wrap and flex-direction properties in one line.
+```
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+```
+In the example above, we take two lines to accomplish what can be done with one.
+```
+.container {
+  display: flex;
+  flex-flow: column wrap;
+}
+```
+In the example above, the first value in the flex-flow declaration is a flex-direction value and the second is a flex-wrap value. All values for flex-direction and flex-wrap are accepted.
+
+**Note:** The flex-flow property is declared on flex containers.
+
+## Nested Flexboxes
+So far, we’ve had multiple flex containers on the same page to explore flex item positioning. It is also possible to position flex containers inside of one another.
+```
+<div class="container">
+  <div class="left">
+    <img class="small" src="#"/>
+    <img class="small" src="#"/>
+    <img class="small" src="#" />
+  </div>
+  <div class="right">
+    <img class="big" src="#" />
+  </div>
+</div>
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  display: inline-flex;
+  flex: 2 1 200px;
+  flex-direction: column;
+}
+
+.right {
+  display: inline-flex;
+  flex: 1 2 400px;
+  align-items: center;
+}
+
+.small {
+  height: 200px;
+  width: auto;
+}
+
+.large {
+  height: 600px; 
+  width: auto;
+}
+```
+In the example above, a div with three smaller images will display from top to bottom on the left of the page (.left). There is also a div with one large image that will display on the right side of the page (.right). The left div has a smaller flex-basis but stretches to fill more extra space; the right div has a larger flex-basis but stretches to fill less extra space. Both divs are flex items and flex containers. The items have properties that dictate how they will be positioned in the parent container and how their flex item children will be positioned in them.
+
+### Nested Flexboxes - Flex Visualisation: 
+![alt text](../resources/images/nested-flexboxes.png "Different Arrangements")
