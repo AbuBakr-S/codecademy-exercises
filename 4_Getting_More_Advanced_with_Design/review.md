@@ -966,3 +966,62 @@ Note: The flex-wrap property is declared on flex containers.
 ### Flex-Wrap - Flex Visualisation: 
 ![alt text](../resources/images/flex-wrap.png "Different Arrangements")
 
+## flex-direction
+Flex containers have two axes: a **major axis** and a **cross axis**. By default, the major axis is horizontal and the cross axis is vertical.
+
+### Major Axis
+The major axis is used to position flex items with the following properties:
+* `justify-content`
+* `flex-wrap`
+* `flex-grow`
+* `flex-shrink`
+
+### Cross Axis
+The cross axis is used to position flex items with the following properties:
+* `align-items`
+* `align-content`
+
+The major axis and cross axis are interchangeable. We can switch them using the flex-direction property. If we add the flex-direction property and give it a value of column, the flex items will be ordered vertically, not horizontally.
+```
+<div class="container">
+  <div class="item">
+    <h1>1</h1>
+  </div>
+  <div class="item">
+    <h1>2</h1>
+  </div>
+  <div class="item">
+    <h1>3</h1>
+  </div>
+  <div class="item">
+    <h1>4</h1>
+  </div>
+  <div class="item">
+    <h1>5</h1>
+  </div>
+</div>
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+}
+.item {
+  height: 100px;
+  width: 100px;
+}
+```
+In the example above, the five divs will be positioned in a vertical column. All of these divs could fit in one horizontal row. However, the column value tells the browser to stack the divs one on top of the other. As explained above, properties like justify-content will not behave the way they did in previous examples.
+
+### flex-direction
+The flex-direction property can accept four values:
+
+* `row` — elements will be positioned from left to right across the parent element starting from the top left corner (default).
+* `row-reverse` — elements will be positioned from right to left across the parent element starting from the top right corner.
+* `column` — elements will be positioned from top to bottom of the parent element starting from the top left corner.
+* `column-reverse` — elements will be positioned from the bottom to the top of the parent element starting from the bottom left corner.
+
+**Note:** The flex-direction property is declared on flex containers.
+
+### Flex-Direction - Flex Visualisation: 
+![alt text](../resources/images/flex-direction.png "Different Arrangements")
