@@ -648,25 +648,32 @@ Check out [this](../resources/images/screen-sizes.png) list of breakpoints by de
 # Flexbox
 Flexbox or Flexible Box Layout, is an elegant tool that makes it easy to address positioning issues that may have been difficult before. 
 
-is a new tool developed for CSS3 that greatly simplifies how to position elements. While flexbox is not meant to lay out entire pages, it is useful for positioning elements, whether individually or in groups.
+* Simplifies how to position elements. 
+* Not meant to lay out entire pages.
+* Useful for positioning elements, whether individually or in groups.
 
-1. Flex containers 
-2. Flex items
+## Structure
+1. **Flex Containers** 
+2. **Flex Items**
 
-* All direct child elements of a flex container are flex items. 
-* Set the element’s display property to flex or inline-flex. 
+All direct child elements of a flex container are flex items. 
+Set the element’s display property to flex or inline-flex. 
 
 ## Properties:
-* justify-content
-* align-items
-* flex-grow
-* flex-shrink
-* flex-basis
-* flex
-* flex-wrap
-* align-content
-* flex-direction
-* flex-flow
+* `display: flex` changes an element to a block-level container with flex items inside of it.
+* `display: inline-flex` allows multiple flex containers to appear inline with each other.
+* Flex containers can be nested inside of each other by declaring display: flex or display: inline-flex for children of flex containers.
+
+* `justify-content` is used to space items along the major axis.
+* `align-items` is used to space items along the cross axis.
+* `flex-grow` is used to specify how much space (and in what proportions) flex items absorb along the major axis.
+* `flex-shrink` is used to specify how much flex items shrink and in what proportions along the major axis.
+* `flex-basis` is used to specify the initial size of an element styled with flex-grow and/or flex-shrink.
+* `flex` is used to specify flex-grow, flex-shrink, and flex-basis in one declaration.
+* `flex-wrap` specifies that elements should shift along the cross axis if the flex container is not large enough.
+* `align-content` is used to space rows along the cross axis.
+* `flex-direction` is used to specify the major and cross axes.
+* `flex-flow` is used to specify flex-wrap and flex-direction in one declaration.
 
 ## display: flex
 Any element can be a flex container. Flex containers are helpful tools for creating websites that respond to changes in screen sizes. **Child elements of flex containers will change size and location in response to the size and position of their parent container.**
@@ -681,7 +688,10 @@ In the example above, all divs with the class container are flex containers. **I
 
 However, it will change the behavior of its child elements. **Child elements will not begin on new lines.** 
 
-## inline-flex
+### Flexbox - Display: Flex Visualisation: 
+![alt text](../resources/images/display-flex.png "Illustrating inline child elements on display: flex vs without.")
+
+## display: inline-flex
 ```
 <div class="container">
   <p>I’m inside of a flex container!</p>
@@ -697,9 +707,10 @@ However, it will change the behavior of its child elements. **Child elements wil
   display: inline-flex;
 }
 ```
-In the example above, there are two container divs. Without a width, each div would stretch the entire width of the page. The paragraphs within each div would also display on top of each other because paragraphs are block-level elements.
+In the example above, there are two container divs. **Without a width, each div would stretch the entire width of the page.** 
+The paragraphs within each div would also display on top of each other because paragraphs are block-level elements.
 
-When we change the value of the display property to inline-flex, the divs will display inline with each other if the page is wide enough. 
+When we change the value of the display property to inline-flex, the **divs will display inline with each other if the page is wide enough.** 
 
 Notice that in the example above, the size of the flex container is set. Currently, the size of the parent container will override the size of its child elements. **If the parent element is too small, the flex items will shrink to accommodate the parent container’s size.**
 ```
@@ -723,17 +734,22 @@ Notice that in the example above, the size of the flex container is set. Current
 ```
 In the example above, the .child divs will take up more width (300 pixels) than the container div allows (200 pixels). The .child divs will shrink to accommodate the container’s size.
 
-## justify-content
-We can specify how flex items spread out from left to right, along the main axis. We will learn more about axes in a later exercise.
+### before
+![alt text](../resources/images/block.png "Block level")
 
-To position the items from left to right, we use a property called justify-content.
+### after
+![alt text](../resources/images/inline.png "In-line")
+
+
+## justify-content (Horizontal Alignment)
+We can specify how flex items spread out from left to right, along the major axis (main axis). To position the items from left to right, we use a property called `justify-content`.
 ```
 .container {
   display: flex;
   justify-content: flex-end;
 }
 ```
-In the example above, we set the value of justify-content to flex-end. This will cause all of the flex items to shift to the right side of the flex container.
+In the example above, we set the value of justify-content to `flex-end`. This will cause **all of the flex items to shift to the right** side of the flex container.
 
 There are five values for the justify-content property:
 
@@ -748,30 +764,30 @@ In the definitions above, “no extra space” means that margins and borders wi
 ### Flexbox - Justify Content Visualisation: 
 ![alt text](../resources/images/flexbox-justify-content.png "5 values of justify-content")
 
-## align-items
-In the previous exercise, you learned how to justify the content of a flex container from left to right across the page. It is also possible to align flex items vertically within the container. The align-items property makes it possible to space flex items vertically.
+
+## align-items (Vertical Alignment)
+The align-items property makes it possible to space flex items vertically.
 ```
 .container {
   align-items: baseline;
 }
 ```
-In the example above, the align-items property is set to baseline. This means that the baseline of the content of each item will be aligned.
+In the example above, the `align-items` property is set to `baseline`. This means that the baseline of the content of each item will be aligned.
 
 There are five values we can use for the align-items property:
-
 1. `flex-start` — all elements will be positioned at the top of the parent container.
 2. `flex-end` — all elements will be positioned at the bottom of the parent container.
 3. `center` — the center of all elements will be positioned halfway between the top and bottom of the parent container.
 4. `baseline` — the bottom of the content of all items will be aligned with each other.
 5. `stretch` — if possible, the items will stretch from top to bottom of the container (this is the default value; elements with a specified height will not stretch; elements with a minimum height or no height specified will stretch).
 
-These five values tell the elements how to behave along the cross axis of the parent container. In these examples, the cross axis stretches from top to bottom of the container. We’ll learn more about this in a future exercise.
+These five values tell the elements how to behave along the cross axis of the parent container. In these examples, the cross axis stretches from top to bottom of the container.
 
 ### Flexbox - Align Items Visualisation: 
 ![alt text](../resources/images/flexbox-align-items.png "5 values of align-items")
 
 ## flex-grow 
-If the parent container is larger than necessary then the flex items will not stretch by default. The flex-grow property allows us to specify if items should grow to fill a container and also which items should grow proportionally more or less than others.
+If the parent container is larger than necessary, then the **flex items will not stretch by default**. The flex-grow property allows us to specify if items should grow to fill a container and also which items should grow proportionally more or less than others.
 
 **This is declared on flex items.**
 ```
@@ -800,7 +816,7 @@ If the parent container is larger than necessary then the flex items will not st
   flex-grow: 2;
 }
 ```
-In the example above, the .container div has a display value of flex, so its three child divs will be positioned next to each other. If there is additional space in the .container div (in this case, if it is wider than 300 pixels), the flex items will grow to fill it. The .center div will stretch twice as much as the .side divs. For example, if there were 60 additional pixels of space, the center div would absorb 30 pixels and the side divs would absorb 15 pixels each.
+In the example above, the **.container div has a display value of flex, so its three child divs will be positioned next to each other.** If there is additional space in the .container div (in this case, if it is wider than 300 pixels), the flex items will grow to fill it. **The .center div will stretch twice as much as the .side divs.** For example, if there were 60 additional pixels of space, the center div would absorb 30 pixels and the side divs would absorb 15 pixels each.
 
 **If a max-width is set for an element, it will not grow larger than that even if there is more space for it to absorb.**
 
@@ -808,9 +824,9 @@ In the example above, the .container div has a display value of flex, so its thr
 ![alt text](../resources/images/flexbox-flex-grow.png "Different Arrangements")
 
 ## flex-shrink
-Just as the flex-grow property proportionally stretches flex items, the flex-shrink property can be used to specify which elements will shrink and in what proportions.
+The `flex-shrink` property can be used to specify which elements will shrink and in what **proportions.**
 
-You may have noticed in earlier exercises that flex items shrank when the flex container was too small, even though we had not declared the property. This is because the default value of flex-shrink is 1. However, flex items do not grow unless the flex-grow property is declared because the default value of flex-grow is 0.
+You may have noticed in earlier exercises that flex items shrank when the flex container was too small, even though we had not declared the property. This is because the **default value of flex-shrink is 1.**
 ```
 <div class="container">
   <div class="side">
@@ -837,15 +853,17 @@ You may have noticed in earlier exercises that flex items shrank when the flex c
   flex-shrink: 2;
 }
 ```
-In the example above, the .center div will shrink twice as much as the .side divs if the .container div is too small to fit the elements within it. If the content is 60 pixels too large for the flex container that surrounds it, the .center div will shrink by 30 pixels and the outer divs will shrink by 15 pixels each. Margins are unaffected by flex-grow and flex-shrink.
+In the example above, the **.center div will shrink twice as much as the .side divs if the .container div is too small to fit the elements within it.** If the content is 60 pixels too large for the flex container that surrounds it, the .center div will shrink by 30 pixels and the outer divs will shrink by 15 pixels each. Margins are unaffected by flex-grow and flex-shrink.
 
-Keep in mind, minimum and maximum widths will take precedence over flex-grow and flex-shrink. As with flex-grow, flex-shrink will only be employed if the parent container is too small or the browser is adjusted.
+Keep in mind, **minimum and maximum widths will take precedence over flex-grow and flex-shrink.** 
+
+**As with flex-grow, flex-shrink will only be employed if the parent container is too small or the browser is adjusted.**
 
 ### Flexbox - Flex-Shrink Visualisation: 
 ![alt text](../resources/images/flexbox-flex-shrink.png "Different Arrangements")
 
 ## flex-basis
-In the previous two exercises, the dimensions of the divs were determined by heights and widths set with CSS. Another way of specifying the width of a flex item is with the flex-basis property. flex-basis allows us to specify the width of an item before it stretches or shrinks.
+Another way of specifying the width of a flex item is with the `flex-basis` property. `flex-basis` allows us to specify the width of an item before it stretches or shrinks.
 ```
 <div class="container">
   <div class=”side”>
@@ -872,7 +890,7 @@ In the previous two exercises, the dimensions of the divs were determined by hei
   flex-basis: 150px;
 }
 ```
-In the example above, the .side divs will be 100 pixels wide and the .center div will be 150 pixels wide if the .container div has just the right amount of space (350 pixels, plus a little extra for margins and borders). If the .container div is larger, the .center div will absorb twice as much space as the .side divs.
+In the example above, the **.side divs will be 100 pixels wide and the .center div will be 150 pixels wide if the .container div has just the right amount of space** (350 pixels, plus a little extra for margins and borders). **If the .container div is larger, the .center div will absorb twice as much space as the .side divs.**
 
 The same would hold true if we assigned flex-shrink values to the divs above as well.
 
@@ -880,7 +898,7 @@ The same would hold true if we assigned flex-shrink values to the divs above as 
 ![alt text](../resources/images/flexbox-flex-basis.png "Different Arrangements")
 
 ## flex
-The flex property provides a convenient way for specifying how elements stretch and shrink, while simplifying the CSS required. The flex property allows you to declare flex-grow, flex-shrink, and flex-basis all in one line.
+The `flex` property allows you to declare `flex-grow`, `flex-shrink`, and `flex-basis` all in one line.
 
 **Note:** The flex property is different from the flex value used for the display property.
 ```
@@ -896,9 +914,9 @@ The flex property provides a convenient way for specifying how elements stretch 
   flex-basis: 100px;
 }
 ```
-In the example above, all elements with class big will grow twice as much as elements with class small. Keep in mind, this doesn’t mean big items will be twice as big as small items, they’ll just take up more of the extra space.
+In the example above, all elements with class big will grow twice as much as elements with class small. Keep in mind, **this doesn’t mean big items will be twice as big as small items, they’ll just take up more of the extra space.**
 
-The CSS below declares these three properties in one line.
+### The CSS below declares these three properties in one line.
 ```
 .big {
   flex: 2 1 150px;
@@ -907,18 +925,23 @@ The CSS below declares these three properties in one line.
 .small {
   flex: 1 2 100px;
 }
-In the example above, we use the flex property to declare the values for flex-grow, flex-shrink, and flex-basis (in that order) all in one line.
+```
 
+### We use the flex property to declare flex-grow and flex-shrink, but not flex-basis.
+```
 .big {
  flex: 2 1;
 }
-In the example above, we use the flex property to declare flex-grow and flex-shrink, but not flex-basis.
+```
 
+### We use the flex property to declare flex-grow and flex-basis. 
+```
 .small {
   flex: 1 20px;
 }
 ```
-In the example above, we use the flex property to declare flex-grow and flex-basis. Note that there is no way to set only flex-shrink and flex-basis using 2 values.
+Note that **there is no way to set only flex-shrink and flex-basis using 2 values.**
+
 
 The browser (shown below) has two flex containers, each with three flex items. In style.css, examine the values for each of these items. Notice that the flex-grow and flex-basis values are set for the blue divs.
 
@@ -930,7 +953,6 @@ Now, shrink the browser window and notice that once the top center div reaches 5
 ![alt text](../resources/images/flexbox-flex.png "Different Arrangements")
 
 
-## flex-wrap
 Sometimes, we don’t want our content to shrink to fit its container. Instead, we might want flex items to move to the next line when necessary. This can be declared with the flex-wrap property. The flex-wrap property can accept three values:
 
 * `wrap` — child elements of a flex container that don’t fit into a row will move down to the next line
@@ -963,25 +985,109 @@ In the example above, three flex items are contained by a parent flex container.
 
 Note: The flex-wrap property is declared on flex containers.
 
-### Flex-Wrap - Flex Visualisation: 
+### Flexbox - Flex Visualisation: 
 ![alt text](../resources/images/flex-wrap.png "Different Arrangements")
 
-## flex-direction
-Flex containers have two axes: a **major axis** and a **cross axis**. By default, the major axis is horizontal and the cross axis is vertical.
 
-### Major Axis
+## flex-wrap
+Sometimes, we don’t want our content to shrink to fit its container. Instead, we might want flex items to move to the next line when necessary. This can be declared with the flex-wrap property. 
+
+The flex-wrap property can accept three values:
+* `wrap` — child elements of a flex container that don’t fit into a row will move down to the next line.
+* `wrap-reverse` — the same functionality as wrap, but the order of rows within a flex container is reversed (for example, in a 2-row flexbox, the first row from a wrap container will become the second in wrap-reverse and the second row from the wrap container will become the first in wrap-reverse).
+* `nowrap` — prevents items from wrapping; this is the default value and is only necessary to override a wrap value set by a different CSS rule.
+```
+<div class="container">
+  <div class="item">
+    <h1>We're going to wrap!</h1>
+  </div>
+  <div class="item">
+    <h1>We're going to wrap!</h1>
+  </div>
+  <div class="item">
+    <h1>We're going to wrap!</h1>
+  </div>
+</div>
+
+.container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 250px;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+}
+```
+In the example above, three flex items are contained by a parent flex container. The flex container is only 250 pixels wide so the three 100 pixel wide flex items cannot fit inline. The flex-wrap: wrap; setting causes the third, overflowing item to appear on a new line, below the other two item.
+
+**Note:** The flex-wrap property is declared on flex containers.
+
+### Flexbox - Flex Wrap Visualisation: 
+![alt text](..resources/images/flex-wrap.png "Flex Wrap Visualisation")
+
+## Align-content
+Now that elements can wrap to the next line, we might have multiple rows of flex items within the same container. 
+In a previous exercise, we used the `align-items` property to space flex items from the top to the bottom of a flex container. 
+**`align-items` is for aligning elements within a single row.** 
+If a flex container has **multiple rows of content**, we can use `align-content` to space the rows from top to bottom.
+
+`align-content` accepts six values:
+* `flex-start` — all rows of elements will be positioned at the top of the parent container with no extra space between.
+* `flex-end` — all rows of elements will be positioned at the bottom of the parent container with no extra space between.
+* `center` — all rows of elements will be positioned at the center of the parent element with no extra space between.
+* `space-between` — all rows of elements will be spaced evenly from the top to the bottom of the container with no space above the first or below the last.
+* `space-around` — all rows of elements will be spaced evenly from the top to the bottom of the container with the same amount of space at the top and bottom and between each element.
+* `stretch` — if a minimum height or no height is specified, the rows of elements will stretch to fill the parent container from top to bottom (default value).
+
+```
+<div class="container">
+  <div class=”child”>
+    <h1>1</h1>
+  </div>
+  <div class="child">
+    <h1>2</h1>
+  </div>
+  <div class="child">
+    <h1>3</h1>
+  </div>
+  <div class="child">
+    <h1>4</h1>
+  </div>
+</div>
+
+.container {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.child {
+  width: 150px;
+  height: 150px;
+}
+```
+
+In the example above, there are four flex items inside of a flex container. The flex items are set to be 150 pixels wide each, but the parent container is only 400 pixels wide. This means that no more than two elements can be displayed inline. The other two elements will wrap to the next line and there will be two rows of divs inside of the flex container. The align-content property is set to the value of space-around, which means the two rows of divs will be evenly spaced from top to bottom of the parent container with equal space before the first row and after the second, with double space between the rows.
+
+## flex-direction
+Up to this point, we’ve only covered flex items that stretch and shrink horizontally and wrap vertically. As previously stated, flex containers have two axes: a major axis and a cross axis. **By default, the major axis is horizontal and the cross axis is vertical.**
+
 The major axis is used to position flex items with the following properties:
 * `justify-content`
 * `flex-wrap`
 * `flex-grow`
 * `flex-shrink`
 
-### Cross Axis
 The cross axis is used to position flex items with the following properties:
 * `align-items`
 * `align-content`
 
 The major axis and cross axis are interchangeable. We can switch them using the flex-direction property. If we add the flex-direction property and give it a value of column, the flex items will be ordered vertically, not horizontally.
+
 ```
 <div class="container">
   <div class="item">
@@ -1011,20 +1117,20 @@ The major axis and cross axis are interchangeable. We can switch them using the 
   width: 100px;
 }
 ```
+
 In the example above, the five divs will be positioned in a vertical column. All of these divs could fit in one horizontal row. However, the column value tells the browser to stack the divs one on top of the other. As explained above, properties like justify-content will not behave the way they did in previous examples.
 
-### flex-direction
-The flex-direction property can accept four values:
-
-* `row` — elements will be positioned from left to right across the parent element starting from the top left corner (default).
+### The flex-direction property can accept four values:
+* `row`— elements will be positioned from left to right across the parent element starting from the top left corner (default).
 * `row-reverse` — elements will be positioned from right to left across the parent element starting from the top right corner.
 * `column` — elements will be positioned from top to bottom of the parent element starting from the top left corner.
 * `column-reverse` — elements will be positioned from the bottom to the top of the parent element starting from the bottom left corner.
 
 **Note:** The flex-direction property is declared on flex containers.
 
-### Flex-Direction - Flex Visualisation: 
-![alt text](../resources/images/flex-direction.png "Different Arrangements")
+### Flexbox - Flex Direction:
+![alt text](../resources/images/flex-direction.png "Flex Direction Visualisations")
+
 
 ## flex-flow
 Like the flex property, the flex-flow property is used to declare both the flex-wrap and flex-direction properties in one line.
@@ -1036,6 +1142,7 @@ Like the flex property, the flex-flow property is used to declare both the flex-
 }
 ```
 In the example above, we take two lines to accomplish what can be done with one.
+
 ```
 .container {
   display: flex;
@@ -1048,6 +1155,7 @@ In the example above, the first value in the flex-flow declaration is a flex-dir
 
 ## Nested Flexboxes
 So far, we’ve had multiple flex containers on the same page to explore flex item positioning. It is also possible to position flex containers inside of one another.
+
 ```
 <div class="container">
   <div class="left">
@@ -1059,7 +1167,6 @@ So far, we’ve had multiple flex containers on the same page to explore flex it
     <img class="big" src="#" />
   </div>
 </div>
-
 .container {
   display: flex;
   justify-content: center;
@@ -1088,7 +1195,7 @@ So far, we’ve had multiple flex containers on the same page to explore flex it
   width: auto;
 }
 ```
+
 In the example above, a div with three smaller images will display from top to bottom on the left of the page (.left). There is also a div with one large image that will display on the right side of the page (.right). The left div has a smaller flex-basis but stretches to fill more extra space; the right div has a larger flex-basis but stretches to fill less extra space. Both divs are flex items and flex containers. The items have properties that dictate how they will be positioned in the parent container and how their flex item children will be positioned in them.
 
-### Nested Flexboxes - Flex Visualisation: 
-![alt text](../resources/images/nested-flexboxes.png "Different Arrangements")
+
